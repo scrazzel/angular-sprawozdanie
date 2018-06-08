@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Album } from '../../albums';
+import { ALBUMS } from '../../mock-albums';
+
 
 @Component({
   selector: 'app-albums',
@@ -7,19 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumsComponent implements OnInit {
 
-  albums:Album[];
+  albums = ALBUMS;
   selectedAlbum: Album;
   
   constructor() { }
 
   ngOnInit() {
-    this.albums = [
-      { title: 'Images and Words', band: 'Dream Theater', publicationDate: 1992},
-      { title: 'Back in Black', band: 'AC/DC', publicationDate: 1980},
-      { title: 'The Dark Side of the Moon', band: 'Pink Floyd', publicationDate: 1973},
-      { title: 'Eliminator', band: 'ZZ Top', publicationDate: 1983},
-      { title: 'Revolver', band: 'The Beatles', publicationDate: 1966}
-    ]
+
   }
 
   onAlbumClick(album:Album){
@@ -40,10 +37,4 @@ export class AlbumsComponent implements OnInit {
     this.albums.splice(i,1);
   }
   
-}
-
-interface Album{
-  title: string,
-  band: string,
-  publicationDate: number
 }
