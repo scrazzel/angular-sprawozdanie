@@ -1,0 +1,8 @@
+.selectedAlbum{
+    color: green;
+    font-weight: 700;
+}
+
+ul#listOfAlbums li:hover{
+    cursor: pointer;
+}

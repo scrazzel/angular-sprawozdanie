@@ -1,0 +1,9 @@
+<h1>Lista uzytkownikow</h1>
+<ul>
+  <li *ngFor="let user of users; let i = index">
+    ID: {{user.id}}
+    Imie: {{user.name}}
+    Pseudonim: {{user.username}}
+    Email: {{user.email}}
+  </li>
+</ul>

@@ -1,0 +1,25 @@
+<h2 style="text-align: center;">Lista albumow muzycznych</h2>
+<ul id="listOfAlbums">
+  <li *ngFor="let album of albums; let i = index" (click)="onAlbumClick(album)" [class.selectedAlbum]="selectedAlbum == album">
+    {{i+1}}. {{album.title}} - {{album.band}} ({{album.publicationDate}})<br/>
+    <label>Zmień nazwę tytułu</label><br/>
+    <input type="text" [(ngModel)]="album.title"><br/>
+    <label>Zmień nazwę zespołu:</label><br/>
+    <input type="text" [(ngModel)]="album.band"><br/>
+    <label>Zmień rok wydania albumu:</label><br/>
+    <input type="text" [(ngModel)]="album.publicationDate"><br/>
+    <button (click)="deleteAlbum(i)">Kliknij, aby usunąć ten album</button>
+  </li>
+</ul>
+
+<h2>Dodawanie albumu</h2>
+<form (submit)="addAlbum(newAlbumTitle.value, newAlbumBand.value, newAlbumPublicationDate.value)">
+  <label for="newAlbumTitle">Podaj nazwę tytułu</label><br/>
+  <input type="text" [(ngModel)]="albums.title" #newAlbumTitle name="title"><br/>
+  <label for="newAlbumBand">Podaj nazwę zespołu:</label><br/>
+  <input type="text" [(ngModel)]="albums.band" #newAlbumBand name="band"><br/>
+  <label for="newAlbumPublicationDate">Podaj rok wydania albumu:</label><br/>
+  <input type="text" [(ngModel)]="albums.publicationDate" #newAlbumPublicationDate name="publicationDate"><br/>
+  <button type="submit">Dodaj album</button>
+</form>
+
